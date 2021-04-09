@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>동적테이블 만들기</title>
+<script type="text/javascript">
+function create() {
+	var info = "";
+	var tableCreatedElement = document.getElementById("tableCreated");
+	var lineElement = document.getElementById("line");
+	var rowElement = document.getElementById("row");
+	line = parseInt(lineElement.value);
+	row = parseInt(rowElement.value);
+	info += "<table border='1' style='margin-top: 10px;'>";
+	info += "<tr>";
+	for ( i = 1; i <= line; i++) {
+		info += "<tr>";
+		for (var j = 1; j <= row; j++) {
+			info += "<td style='padding: 20px;'>";
+			info += "A";
+			info += "</td>";
+		}
+		info += "</tr>";
+	}
+	info += "</table>";
+	tableCreatedElement.innerHTML = info;
+}
+
+</script>
+</head>
+<body>
+	<h2>행과 열의 개수를 입력하세요</h2>
+	행 : <input type="text" id="line" >
+	열 : <input type="text" id="row">
+	<input type="button" value="테이블 생성" style="display: block; margin-top: 10px;" onclick="return create()" >
+	<div id="tableCreated"></div>
+</body>
+</html>
